@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040810">
+    <meta name="description" content="{% block meta_description %}J.A.R.V.I.S — voice interface.{% endblock %}">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="application-name" content="J.A.R.V.I.S">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}J.A.R.V.I.S{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Voice-only cortical interface.{% endblock %}">
+
+    <title>{% block title %}J.A.R.V.I.S{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head_extra %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container {% block container_class %}{% endblock %}">
+        {% block site_header %}{% endblock %}
+        <main id="main-content" role="main">
+            {% block content %}{% endblock %}
+        </main>
+        {% block site_footer %}{% endblock %}
+    </div>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

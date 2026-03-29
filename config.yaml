@@ -1,0 +1,52 @@
+system:
+  name: "J.A.R.V.I.S"
+  version: "1.0.0"
+  mode: "adaptive"  # engineer | execution | adaptive
+  log_level: "INFO"
+
+memory:
+  short_term_capacity: 50
+  long_term_db: "data/jarvis.db"
+  episodic_max_episodes: 1000
+  semantic_embedding_model: "all-MiniLM-L6-v2"
+  vector_index_path: "data/vector_index.faiss"
+
+evolution:
+  rl_algorithm: "deep_q"       # q_learning | deep_q
+  learning_rate: 0.001
+  discount_factor: 0.95
+  epsilon: 1.0
+  epsilon_min: 0.01
+  epsilon_decay: 0.995
+  replay_buffer_size: 10000
+  batch_size: 32
+  train_frequency: 4
+  target_update_frequency: 100
+
+autonomy:
+  max_retries: 3
+  retry_delay: 2.0
+  execution_timeout: 30
+  confidence_threshold: 0.7
+
+safety:
+  max_risk_level: "medium"     # low | medium | high
+  require_confirmation_above: "low"
+  sandbox_mode: true
+  log_all_actions: true
+  immutable: true
+
+personality:
+  default_mode: "adaptive"
+  wit_level: 0.75
+  verbosity: "concise"        # JARVIS is brief and precise — concise | balanced | verbose
+
+dashboard:
+  host: "127.0.0.1"
+  port: 5000
+  debug: false
+
+performance:
+  track_metrics: true
+  benchmark_interval: 100
+  metrics_db: "data/metrics.db"
